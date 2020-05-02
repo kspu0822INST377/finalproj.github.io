@@ -71,15 +71,16 @@ h1 {
 
 
 /* Styling the graph container */
-.graph {
+/*#graph {
     display: block;
     height: 500px;
     width: 700px;
     border-style: dotted;
-}
+}*/
 
 .wrapper {
     padding-left: 2%;
+    width: 700px;
 }
 
 /* Footer */
