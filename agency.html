@@ -5,6 +5,7 @@
         <title>Visulization Page for now</title>
         <link rel="stylesheet" href="styles-vis.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </head>
     <body>
         <div class="header">
@@ -17,8 +18,8 @@
                 <div class="dropdown">
                     <a class="active" href="#Spending">Spending</a>
                     <div class="dropdown-content">
-                        <a href="#agency">Agency</a>
-                        <a href="#payment">Payment</a>
+                        <a href="agency.html">Agency</a>
+                        <a href="payment.html">Payment</a>
                     </div>
                 </div>
                 <a href="#About">About</a>
@@ -27,7 +28,7 @@
         <div class ="container">
             <div class="wrapper">
                 <h2>Spending by Agency</h2>
-                <div class="graph">
+                <div id="chartContainer" style="height: 500px; width: 100%;">
 
                 </div>
                 <div class="about">
@@ -38,5 +39,41 @@
         <footer>
             <p>This is the footer</p>
         </footer>
+        <script>
+            fetch('/agency')
+            .then((data) => data.json())
+            .then((data) => {
+                console.log(data['data'])
+                window.onload = function () {
+	
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    /*title: {
+                        text: "Spending by Agency",
+                        fontSize: 25
+                    },*/
+                    axisX: {
+                        labelFontSize: 12,
+                        interval: 1
+                    },
+                    axisY: {
+                        labelFontSize: 12,
+                        title: "Amount ($)",
+                        titleFontSize: 18,
+                        scaleBreaks: {
+                            autoCalculate: true,
+                            type: "wavy"
+                        }
+                    },
+                    data: [{
+                        type: "bar",
+                        dataPoints: data['data']
+                    }]
+                });
+                chart.render();
+                
+                }
+            })
+        </script>
     </body>
 </html>
