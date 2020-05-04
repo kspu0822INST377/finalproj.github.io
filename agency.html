@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Visulization Page for now</title>
+        <link rel="stylesheet" href="styles-vis.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="h1-img">
+                <img src="seal.png">
+                <h1>Prince George's County Spending</h1>
+            </div>
+            <div class="topnav">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a class="active" href="#Spending">Spending</a>
+                    <div class="dropdown-content">
+                        <a href="agency.html">Agency</a>
+                        <a href="payment.html">Payment</a>
+                    </div>
+                </div>
+                <a href="#About">About</a>
+            </div>
+        </div>
+        <div class ="container">
+            <div class="wrapper">
+                <h2>Spending by Agency</h2>
+                <div id="chartContainer" style="height: 500px; width: 100%;">
+
+                </div>
+                <div class="about">
+                    <p>This will talk about the visualization. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>This is the footer</p>
+        </footer>
+        <script>
+            fetch('/agency')
+            .then((data) => data.json())
+            .then((data) => {
+                console.log(data['data'])
+                window.onload = function () {
+	
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    /*title: {
+                        text: "Spending by Agency",
+                        fontSize: 25
+                    },*/
+                    axisX: {
+                        labelFontSize: 12,
+                        interval: 1
+                    },
+                    axisY: {
+                        labelFontSize: 12,
+                        title: "Amount ($)",
+                        titleFontSize: 18,
+                        scaleBreaks: {
+                            autoCalculate: true,
+                            type: "wavy"
+                        }
+                    },
+                    data: [{
+                        type: "bar",
+                        dataPoints: data['data']
+                    }]
+                });
+                chart.render();
+                
+                }
+            })
+        </script>
+    </body>
+</html>
