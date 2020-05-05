@@ -146,6 +146,12 @@ h2 {
     display : flex;
 }
 
+.formlogo{
+    width : 30%;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* Footer */
 footer {
     display: flex;
