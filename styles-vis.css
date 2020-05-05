@@ -103,7 +103,36 @@ h1 {
     flex-direction: column;
 }
 
+.eachProfile{
+    text-align: center;
+    background-color: #66ccff;
+    padding: 1%;
+    justify-content: center;
+    width : 15%;
+    flex-direction: column;
+}
 
+.aboutText{
+    background-color: #66ccff;
+    padding: 1%;
+    width : 50%;
+    flex-direction: column;
+}
+
+.aboutUpper{
+    display : flex;
+    justify-content: space-between;
+}
+
+.aboutDown{
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile{
+    justify-content: space-between;
+    display : flex;
+}
 
 /* Footer */
 footer {
