@@ -83,6 +83,22 @@ h1 {
     width: 700px;
 }
 
+.boxZone{
+    display : flex;
+    justify-content: space-between;
+}
+
+.box{
+    text-align: center;
+    background-color: #66ccff;
+    padding: 1%;
+    justify-content: center;
+    width : 40%;
+    flex-direction: column;
+}
+
+
+
 /* Footer */
 footer {
     display: flex;
