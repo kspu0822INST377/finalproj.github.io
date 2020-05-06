@@ -3,6 +3,15 @@ const express = require('express');
 const fetch = require('node-fetch');
 const app = express();
 
+/*sqlite*/
+const sqlite3 = require('sqlite3').verbose();
+const open = require('sqlite').open;
+
+const dbSettings = {
+  filename: "./database.db",
+  driver: sqlite3.Database,
+};
+
 /*temp --Heroku?*/
 const port = process.env.PORT || 3000;
 
@@ -56,10 +65,36 @@ function spendingbyPayment(req, res) {
         res.send({data: data})
     })
 }
-    
+
+/* writeForm function */
+async function writeForm(user_name, email, suggestion, dbSettings) {
+    console.log('writing form data to database');
+    const db = await open(dbSettings)
+    await db.exec('CREATE TABLE IF NOT EXISTS form_data (name varchar(255), zip_code int, interests text)');
+    await db.exec(`INSERT INTO form_data VALUES ("${user_name}", ${email}, "${suggestion}")`);
+    const result = await db.all('SELECT * FROM form_data', (err, rows) => {
+      if (err) {
+        throw err;
+      }
+      rows.forEach((row) => {
+        console.log(row);
+      });
+    });
+    return result;
+  }
+//export default writeForm;
+
 
 
 app.get('/agency', (req, res) => {spendingbyAgency(req, res)});
 app.get('/payment', (req, res) => {spendingbyPayment(req, res)});
+app.post('/about', (req, res) => {
+    console.log("/about post request", req.body);
+    writeForm(req.body.name, req.body.email, req.body.improvement, dbSettings)
+    .then((table) => {
+      console.log(table)
+      res.json({successMsg: 'Thank you! Your suggestion was submitted.'});
+    })
+})
 
 app.listen(port, () => console.log(`Listening on port ${port}`));

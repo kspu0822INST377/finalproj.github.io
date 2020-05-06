@@ -106,9 +106,15 @@ button:hover {
 }
 
 .container h1 {
+    display: block;
     font-weight: 700;
     color: white;
     text-align: center;
+    background-color: rgba(166, 166, 166, 0.4);
+    padding-top: 5%;
+    padding-bottom: 5%;
+    margin-left: 80px;
+    margin-right: 80px;
 }
 
 .box h2 {

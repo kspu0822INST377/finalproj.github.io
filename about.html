@@ -54,7 +54,7 @@
                         <img src="seal.png">
                         <br>
                         <h2>Help us to improve the website!</h2>
-                        <form>
+                        <form class="aboutform">
                             <label for="name">Name</label>
                             <br>
                             <input type="text" id="name" name="name" />
@@ -108,6 +108,30 @@
                 </div>
             </div>
         </div>
+        <script>
+            function sendForm(e) {
+                e.preventDefault(); // this prevents your page reloading on button click
+                const target = document.querySelector(".aboutform");
 
+                const formToSend = new FormData(target);
+
+                fetch("/api'", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(Object.fromEntries(formToSend)),
+                })
+                .then((data) => data.json())
+                .then((data) => {
+                    console.log(data);
+                    const br = document.createElement("br");
+                    target.append(br);
+                    target.append(`${data.successMsg}`);
+                })
+            }
+            const formBtn = document.querySelector("#formBtn");
+            formBtn.addEventListener("click", sendForm);
+        </script>
     </body>
 </html>
