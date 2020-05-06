@@ -71,12 +71,11 @@ h1 {
 
 
 /* Styling the graph container */
-/*#graph {
+#chartContainer {
     display: block;
-    height: 500px;
-    width: 700px;
-    border-style: dotted;
-}*/
+    height: 100%;
+    width: 900px;
+}
 
 .container {
     width: 100%;
@@ -92,7 +91,7 @@ h2 {
 
 .wrapper {
     padding-left: 2%;
-    width: 100%;
+    width: 900px;
 }
 
 .wrapperIndex {
@@ -159,5 +158,17 @@ footer {
     height: 30px;
     background-color: cyan;
     align-items: center;
+}
+
+/* Styling sub-heading */
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+/* text under graph */
+.about {
+    padding-top: 3%;
+    font-family: 'Montserrat', sans-serif;
 }
 

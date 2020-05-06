@@ -34,7 +34,7 @@ function spendingbyAgency(req, res) {
     })
 }
 
-/* Spending by Payment function */
+/* Spending by Payment */
 function spendingbyPayment(req, res) {
     const paymentURL = apiURL+"$select=gl_account_description,sum(amount)&$group=gl_account_description"
     fetch(paymentURL)
@@ -53,9 +53,11 @@ function spendingbyPayment(req, res) {
     })
     .then((data) => {
         console.log(data)
-        res.send({data: data}) /* Send formatted data for canvasJS */
+        res.send({data: data})
     })
 }
+    
+
 
 app.get('/agency', (req, res) => {spendingbyAgency(req, res)});
 app.get('/payment', (req, res) => {spendingbyPayment(req, res)});
