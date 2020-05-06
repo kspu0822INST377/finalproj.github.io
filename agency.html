@@ -28,17 +28,16 @@
         <div class ="container">
             <div class="wrapper">
                 <h2>Spending by Agency</h2>
-                <div id="chartContainer" style="height: 500px; width: 100%;">
+                <div class="chartWrapper">
+                    <div id="chartContainer" style="height: 500px; width: 100%;">
 
+                    </div>
                 </div>
                 <div class="about">
                     <p>From the visual, we can see that spending from Education superceeds the spending from all other agencies. However, there is also a good amount of spending from the Public Works & Transportation agency and the Environmental agency. You can mouse over specific agencies to view their exact spending amount.</p>
                 </div>
             </div>
         </div>
-        <footer>
-            <p>This is the footer</p>
-        </footer>
         <script>
             fetch('/agency')
             .then((data) => data.json())
