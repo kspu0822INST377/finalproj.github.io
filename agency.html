@@ -43,7 +43,6 @@
             .then((data) => data.json())
             .then((data) => {
                 console.log(data['data'])
-                window.onload = function () {
 	
                 var chart = new CanvasJS.Chart("chartContainer", {
                     animationEnabled: true,
@@ -71,7 +70,6 @@
                 });
                 chart.render();
                 
-                }
             })
         </script>
     </body>
