@@ -88,13 +88,22 @@ async function writeForm(user_name, email, suggestion, dbSettings) {
 
 app.get('/agency', (req, res) => {spendingbyAgency(req, res)});
 app.get('/payment', (req, res) => {spendingbyPayment(req, res)});
-app.post('/about', (req, res) => {
+app.get('/about', (req, res) => {
+    (async () => {
+      const db = await open(dbSettings);
+      const result = await db.all("SELECT * FROM form_data");
+      console.log("Expected result", result);
+      res.json(result);
+    })();
+  })
+  .put('/about', (req, res) => {
     console.log("/about post request", req.body);
-    writeForm(req.body.name, req.body.email, req.body.improvement, dbSettings)
+    writeForm(req.body.name, req.body.email, req.body.suggestion, dbSettings)
     .then((table) => {
       console.log(table)
       res.json({successMsg: 'Thank you! Your suggestion was submitted.'});
     })
-})
+  })
+
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
