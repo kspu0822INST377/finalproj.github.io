@@ -103,6 +103,9 @@ app.get('/about', (req, res) => {
       console.log(table)
       res.json({successMsg: 'Thank you! Your suggestion was submitted.'});
     })
+    .catch((err) => {
+      console.log(err);
+    });
   })
 
 
