@@ -167,8 +167,8 @@ h2 {
 }
 
 .box img{
-    height: 330px;
-    width: 440px;
+    height: 270px;
+    width: 360px;
 }
 
 .eachProfile{
@@ -220,6 +220,11 @@ h2 {
 .formlogo label {
     color: white;
 }
+
+.formlogo img{
+    width: 240px;
+    height: 240px;
+} 
 
 /* Footer */
 footer {
