@@ -47,14 +47,14 @@
                         <img src="seal.png">
                         <br>
                         <h2>Help us to improve the website!</h2>
-                        <form class="aboutform">
+                        <form class="aboutform" id="userform">
                             <label for="name">Name</label>
                             <br>
-                            <input type="text" id="name" name="name" />
+                            <input type="text" id="name" name="name">
                             <br>
                             <label for="email">Email</label>
                             <br>
-                            <input type="text" id="email" name="email" />
+                            <input type="text" id="email" name="email">
                             <br>
                             <label for="improvement">Any suggestion for the website?</label>
                             <br>
@@ -103,12 +103,12 @@
         </div>
         <script>
             function sendForm(e) {
-                e.preventDefault(); // this prevents your page reloading on button click
-                const target = document.querySelector(".aboutform");
+                e.preventDefault();
+                const target = document.querySelector("#userform");
 
                 const formToSend = new FormData(target);
 
-                fetch("/api'", {
+                fetch("/about", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

@@ -2,6 +2,9 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const app = express();
+app.use(express.static('./'));
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 /*sqlite*/
 const sqlite3 = require('sqlite3').verbose();
@@ -15,7 +18,6 @@ const dbSettings = {
 /*temp --Heroku?*/
 const port = process.env.PORT || 3000;
 
-app.use(express.static('./'));
 
 /* Begin handling of data */
 const apiURL = "https://data.princegeorgescountymd.gov/resource/p32t-azw8.json?"
@@ -67,11 +69,11 @@ function spendingbyPayment(req, res) {
 }
 
 /* writeForm function */
-async function writeForm(user_name, email, suggestion, dbSettings) {
+async function writeForm(username, email, suggestion, dbSettings) {
     console.log('writing form data to database');
     const db = await open(dbSettings)
-    await db.exec('CREATE TABLE IF NOT EXISTS form_data (name varchar(255), email varchar(255), suggestion text)');
-    await db.exec(`INSERT INTO form_data VALUES ("${user_name}", ${email}, "${suggestion}")`);
+    await db.exec('CREATE TABLE IF NOT EXISTS form_data (name varchar(255), email text, suggestion text)');
+    await db.exec(`INSERT INTO form_data VALUES ("${username}", ${email}, "${suggestion}")`);
     const result = await db.all('SELECT * FROM form_data', (err, rows) => {
       if (err) {
         throw err;
@@ -80,14 +82,19 @@ async function writeForm(user_name, email, suggestion, dbSettings) {
         console.log(row);
       });
     });
+    console.log("table", result);
     return result;
   }
-//export default writeForm;
 
 
 
 app.get('/agency', (req, res) => {spendingbyAgency(req, res)});
 app.get('/payment', (req, res) => {spendingbyPayment(req, res)});
+app.route("/about").post((req, res) => {
+    console.log("/about post request", req.body);
+    writeForm(req.body.name, req.body.email, req.body.improvement, dbSettings);
+    res.json({successMsg: 'Thank you! Your suggestion was submitted.'});
+})
 app.get('/about', (req, res) => {
     (async () => {
       const db = await open(dbSettings);
