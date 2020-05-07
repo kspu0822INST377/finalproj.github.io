@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Visulization Page for now</title>
+        <link rel="stylesheet" href="styles-vis.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
+        <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="h1-img">
+                <img src="seal.png">
+                <h1>Prince George's County Spending</h1>
+            </div>
+            <div class="topnav">
+                <a href="index.html">Home</a>
+                <div class="dropdown">
+                    <a class="active" href="#Spending">Spending</a>
+                    <div class="dropdown-content">
+                        <a href="agency.html">Agency</a>
+                        <a href="payment.html">Payment</a>
+                    </div>
+                </div>
+                <a href="about.html">About</a>
+            </div>
+        </div>
+        <div class ="container">
+            <div class="wrapper">
+                <h2>Spending by Payment</h2>
+                <div class="chartWrapper" style="height: 500px; overflow-x:auto;position:relative;">
+                    <div id="chartContainer" style="width: 100%;">
+                    </div>
+                </div>
+                <div class="about">
+                    <p>From the visual, we can see that payments for contribution to the Board of Education took up most of the spending in 2019, followed by payments for construction. You can mouse over specific payments to see their exact amount.</p>
+                </div>
+            </div>
+        </div>
+        <script>
+            fetch('/payment')
+            .then((data) => data.json())
+            .then((data) => {
+                console.log(data['data'])
+                window.onload = function () {
+	
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    height: 4000,
+                    animationEnabled: true,
+                    zoomEnabled: true,
+                    /*title: {
+                        text: "Spending by Agency",
+                        fontSize: 25
+                    },*/
+                    axisX: {
+                        labelFontSize: 12,
+                        interval: 1,
+                        labelMaxWidth: 1000,
+                        crosshair: { 
+                            enabled: true,
+                            snapToDataPoint: true,
+                            labelFormatter: function(e) {
+                                if(e.chart.data[0].dataPoints[e.value].y)
+                                    return e.chart.data[0].dataPoints[e.value].label.toString()+": "+e.chart.data[0].dataPoints[e.value].y.toString();
+                            
+                            return e.value;
+                            }
+                        }   
+                    },
+                    axisY: {
+                        labelFontSize: 12,
+                        title: "Amount ($)",
+                        titleFontSize: 18,
+                        scaleBreaks: {
+                            autoCalculate: true,
+                            maxNumberOfAutoBreaks: 4,
+                            collapsibleThreshold: "10%",
+                            type: "wavy"
+                        },
+                        minimum: 0
+                    },
+                    data: [{
+                        type: "bar",
+                        dataPoints: data['data']
+                    }]
+                });
+                chart.render();
+                
+                }
+            })
+        </script>
+    </body>
+</html>
