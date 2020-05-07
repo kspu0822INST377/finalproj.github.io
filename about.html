@@ -101,5 +101,30 @@
                 </div>
             </div>
         </div>
+        <script>
+            function sendForm(e) {
+                e.preventDefault();
+                const target = document.querySelector("#userform");
+
+                const formToSend = new FormData(target);
+
+                fetch("/about", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(Object.fromEntries(formToSend)),
+                })
+                .then((data) => data.json())
+                .then((data) => {
+                    console.log(data);
+                    const br = document.createElement("br");
+                    target.append(br);
+                    target.append(`${data.successMsg}`);
+                })
+            }
+            const formBtn = document.querySelector("#formBtn");
+            formBtn.addEventListener("click", sendForm);
+        </script>
     </body>
 </html>
