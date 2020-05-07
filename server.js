@@ -70,7 +70,7 @@ function spendingbyPayment(req, res) {
 async function writeForm(user_name, email, suggestion, dbSettings) {
     console.log('writing form data to database');
     const db = await open(dbSettings)
-    await db.exec('CREATE TABLE IF NOT EXISTS form_data (name varchar(255), zip_code int, interests text)');
+    await db.exec('CREATE TABLE IF NOT EXISTS form_data (name varchar(255), email varchar(255), suggestion text)');
     await db.exec(`INSERT INTO form_data VALUES ("${user_name}", ${email}, "${suggestion}")`);
     const result = await db.all('SELECT * FROM form_data', (err, rows) => {
       if (err) {
