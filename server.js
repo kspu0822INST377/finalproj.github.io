@@ -11,7 +11,7 @@ const sqlite3 = require('sqlite3').verbose();
 const open = require('sqlite').open;
 
 const dbSettings = {
-  filename: "./database.db",
+  filename: "./database_final.db",
   driver: sqlite3.Database,
 };
 
@@ -72,8 +72,8 @@ function spendingbyPayment(req, res) {
 async function writeForm(username, email, suggestion, dbSettings) {
     console.log('writing form data to database');
     const db = await open(dbSettings)
-    await db.exec('CREATE TABLE IF NOT EXISTS form_data (name varchar(255), email text, suggestion text)');
-    await db.exec(`INSERT INTO form_data VALUES ("${username}", ${email}, "${suggestion}")`);
+    await db.exec('CREATE TABLE IF NOT EXISTS form_data (name varchar(255), email varchar(320), suggestion text)');
+    await db.exec(`INSERT INTO form_data VALUES ("${username}", "${email}", "${suggestion}")`);
     const result = await db.all('SELECT * FROM form_data', (err, rows) => {
       if (err) {
         throw err;
@@ -82,7 +82,7 @@ async function writeForm(username, email, suggestion, dbSettings) {
         console.log(row);
       });
     });
-    console.log("table", result);
+    console.log("sql table", result);
     return result;
   }
 
