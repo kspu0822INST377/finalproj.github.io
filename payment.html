@@ -42,7 +42,6 @@
             .then((data) => data.json())
             .then((data) => {
                 console.log(data['data'])
-                window.onload = function () {
 	
                 var chart = new CanvasJS.Chart("chartContainer", {
                     height: 4000,
@@ -86,7 +85,6 @@
                 });
                 chart.render();
                 
-                }
             })
         </script>
     </body>
