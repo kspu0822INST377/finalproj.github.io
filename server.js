@@ -95,6 +95,7 @@ app.route("/about").post((req, res) => {
     writeForm(req.body.name, req.body.email, req.body.suggestion, dbSettings);
     res.json({successMsg: 'Thank you! Your suggestion was submitted.'});
 })
+/*
 app.get('/about', (req, res) => {
     (async () => {
       const db = await open(dbSettings);
@@ -113,7 +114,7 @@ app.get('/about', (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-  })
+  })*/
 
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
