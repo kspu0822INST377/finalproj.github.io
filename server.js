@@ -11,7 +11,7 @@ const sqlite3 = require('sqlite3').verbose();
 const open = require('sqlite').open;
 
 const dbSettings = {
-  filename: "./database_final.db",
+  filename: "./server_files/database_final.db",
   driver: sqlite3.Database,
 };
 
