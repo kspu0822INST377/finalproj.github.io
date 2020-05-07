@@ -170,14 +170,14 @@ h2 {
     background-color: rgba(166, 166, 166, 0.6);
     padding: 1%;
     justify-content: center;
-    width : 15%;
-    height: 150px;
+    width : 17%;
+    height: 200px;
     flex-direction: column;
     margin-bottom: 35px;
 }
 .eachProfile img {
-    height: 70px;
-    width: 70px;
+    height: 130px;
+    width: 130px;
 }
 
 .aboutText{
