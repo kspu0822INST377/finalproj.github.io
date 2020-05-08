@@ -247,4 +247,8 @@ h2 {
 p {
     color: white;
 }
+#chartContainer img {
+    display: block;
+    margin: auto;
+}
 
