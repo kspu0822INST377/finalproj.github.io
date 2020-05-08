@@ -8,9 +8,7 @@ body {
     background-image: url("images/backgrnd.jpg");
     background-size: cover;
 }
-html, body {
-    max-height: 1000px;
-}
+
 /* Styling the header and menu */
 .header {
     display: block;
@@ -246,5 +244,9 @@ h2 {
 }
 p {
     color: white;
+}
+#chartContainer img {
+    display: block;
+    margin: auto;
 }
 

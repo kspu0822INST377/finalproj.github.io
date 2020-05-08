@@ -92,7 +92,7 @@ app.get('/agency', (req, res) => {spendingbyAgency(req, res)});
 app.get('/payment', (req, res) => {spendingbyPayment(req, res)});
 app.route("/about").post((req, res) => {
     console.log("/about post request", req.body);
-    writeForm(req.body.name, req.body.email, req.body.suggestion, dbSettings);
+    writeForm(req.body.name, req.body.email, req.body.improvement, dbSettings);
     res.json({successMsg: 'Thank you! Your suggestion was submitted.'});
 })
 /*
