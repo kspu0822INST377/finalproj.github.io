@@ -5,10 +5,10 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    background-image: url("images/backgrnd.jpg");
+    background-size: cover;
 }
-html, body {
-    height: 900px;
-}
+
 /* Styling the header and menu */
 .header {
     display: block;
@@ -16,12 +16,11 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-bottom: double;
+    background-color: rgba(166, 166, 166, 0.4);
 }
 img {
     height: 100px;
     width: 100px;
-    padding-left: 2%;
 }
 
 h1 {
@@ -47,13 +46,10 @@ h1 {
     padding-left: 2%;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
-}
-.topnav a:hover {
-    background-color: darkblue;
     color: white;
 }
 .active {
-    background-color: grey;
+    background-color: #595959;
     color: white;
 }
 .dropdown {
@@ -63,31 +59,195 @@ h1 {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: wheat;
+    background-color: rgba(166, 166, 166, 0.4);
 }
 .dropdown:hover .dropdown-content {
     display: block;
 }
+.topnav a:hover {
+    background-color: grey;
+    color: white;
+}
+button {
+    display: inline-block;
+    border: 1px solid #ffffff;
+    border-radius: 0.2px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 8px 15px 8px 15px;
+    background-color: transparent;
+    color: white;
+}
+button:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
 
 
 /* Styling the graph container */
-/*#graph {
+#chartContainer {
     display: block;
-    height: 500px;
-    width: 700px;
-    border-style: dotted;
-}*/
+    height: 100%;
+    width: 900px;
+}
+.chartWrapper {
+    width: 95%;
+}
+
+.container {
+    width: 100%;
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding-top: 60px;
+}
+
+.container h1 {
+    display: block;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    background-color: rgba(166, 166, 166, 0.6);
+    padding-top: 4%;
+    padding-bottom: 4%;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+.box h2 {
+    font-weight: 400;
+    color: white;
+}
+.box p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    margin: 0;
+    padding: 2%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
 
 .wrapper {
     padding-left: 2%;
-    width: 700px;
+    width: 900px;
+    display: block;
+    background-color: rgba(166, 166, 166, 0.4);
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 35px;
 }
+
+
+/* index page */
+.wrapperIndex {
+    padding: 2%;
+    max-width: 100%;
+    text-align: center;
+}
+
+.boxZone{
+    display : flex;
+    justify-content: space-between;
+}
+
+.box{
+    text-align: center;
+    background-color: rgba(166, 166, 166, 0.6);
+    padding: 1%;
+    justify-content: center;
+    width : 40%;
+    flex-direction: column;
+}
+
+.box img{
+    height: 270px;
+    width: 360px;
+}
+
+.eachProfile{
+    text-align: center;
+    background-color: rgba(166, 166, 166, 0.6);
+    padding: 1%;
+    justify-content: center;
+    width : 17%;
+    height: 200px;
+    flex-direction: column;
+    margin-bottom: 35px;
+}
+.eachProfile img {
+    height: 130px;
+    width: 130px;
+}
+
+.aboutText{
+    background-color: rgba(166, 166, 166, 0.6);
+    padding: 1%;
+    width : 50%;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.aboutUpper{
+    display : flex;
+    justify-content: space-between;
+}
+
+.aboutDown{
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile{
+    justify-content: space-between;
+    display : flex;
+    margin-right: 20px;
+}
+
+.formlogo{
+    width : 50%;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+}
+.formlogo label {
+    color: white;
+}
+
+.formlogo img{
+    width: 240px;
+    height: 240px;
+} 
 
 /* Footer */
 footer {
     display: flex;
-    height: 30px;
-    background-color: cyan;
+    height: 20px;
     align-items: center;
 }
 
+/* Styling sub-heading */
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+
+/* text under graph */
+.about {
+    padding-top: 3%;
+    font-family: 'Montserrat', sans-serif;
+}
+p {
+    color: white;
+}
+#bar-chart img {
+    display: block;
+    margin: auto;
+}
+canvas {
+    background-color: white;
+}
