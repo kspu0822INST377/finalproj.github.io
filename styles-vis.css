@@ -134,7 +134,7 @@ h2 {
 
 .wrapper {
     padding-left: 2%;
-    width: 900px;
+    width: 85%;
     display: block;
     background-color: rgba(166, 166, 166, 0.4);
     margin-left: 20px;
@@ -219,9 +219,10 @@ h2 {
     color: white;
 }
 
+
 .formlogo img{
     width: 240px;
-    height: 240px;
+    height: 200px;
 } 
 
 /* Footer */
@@ -252,3 +253,4 @@ p {
 canvas {
     background-color: white;
 }
+

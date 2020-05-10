@@ -14,6 +14,10 @@ const dbSettings = {
   filename: "./server_files/database_final.db",
   driver: sqlite3.Database,
 };
+const dbSettings2 = {
+  filename: "./server_files/questions.db",
+  driver: sqlite3.Database,
+};
 
 /*temp --Heroku?*/
 const port = process.env.PORT || 3000;
@@ -83,9 +87,26 @@ async function writeForm(username, email, suggestion, dbSettings) {
         console.log(row);
       });
     });
-    console.log("sql table", result);
+    console.log("form_data table", result);
     return result;
   }
+
+async function writeQuestion(username, email, question, dbSettings2) {
+  console.log('writing question form data to database');
+  const db = await open(dbSettings2)
+  await db.exec('CREATE TABLE IF NOT EXISTS questions (name varchar(255), email varchar(320), suggestion text)');
+  await db.exec(`INSERT INTO questions VALUES ("${username}", "${email}", "${question}")`);
+  const result = await db.all('SELECT * FROM questions', (err, rows) => {
+    if (err) {
+      throw err;
+    }
+    rows.forEach((row) => {
+      console.log(row);
+    });
+  });
+  console.log("questions table", result);
+  return result;
+}
 
 function byAgency(req, res) {
   const agencyURL = apiURL+"$select=agency,sum(amount)&$group=agency";
@@ -136,26 +157,10 @@ app.route("/about").post((req, res) => {
     writeForm(req.body.name, req.body.email, req.body.improvement, dbSettings);
     res.json({successMsg: 'Thank you! Your suggestion was submitted.'});
 })
-/*
-app.get('/about', (req, res) => {
-    (async () => {
-      const db = await open(dbSettings);
-      const result = await db.all("SELECT * FROM form_data");
-      console.log("Expected result", result);
-      res.json(result);
-    })();
-  })
-  .put('/about', (req, res) => {
-    console.log("/about post request", req.body);
-    writeForm(req.body.name, req.body.email, req.body.suggestion, dbSettings)
-    .then((table) => {
-      console.log(table)
-      res.json({successMsg: 'Thank you! Your suggestion was submitted.'});
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  })*/
-
+app.route("/doc").put((req, res) => {
+  console.log("/doc put request", req.body);
+  writeQuestion(req.body.name, req.body.email, req.body.question, dbSettings2);
+  res.json({successMsg: 'Thank you! Your question was submitted.'});
+})
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
