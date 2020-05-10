@@ -245,8 +245,10 @@ h2 {
 p {
     color: white;
 }
-#chartContainer img {
+#bar-chart img {
     display: block;
     margin: auto;
 }
-
+canvas {
+    background-color: white;
+}

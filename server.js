@@ -68,6 +68,7 @@ function spendingbyPayment(req, res) {
     })
 }
 
+
 /* writeForm function */
 async function writeForm(username, email, suggestion, dbSettings) {
     console.log('writing form data to database');
@@ -86,10 +87,50 @@ async function writeForm(username, email, suggestion, dbSettings) {
     return result;
   }
 
+function byAgency(req, res) {
+  const agencyURL = apiURL+"$select=agency,sum(amount)&$group=agency";
+  fetch(agencyURL)
+  .then((data) => data.json())
+  .then((data) => {
+    data.shift()
+    return data;
+  })
+  .then((data) => {
+    let labels = [];
+    let amounts = [];
+    for (let i=0; i<data.length; i++) {
+      labels.push(data[i].agency)
+      amounts.push(parseInt(data[i].sum_amount))
+    }
+    console.log(labels, amounts)
+    res.send({labels: labels, amounts: amounts}) /*Send formatted data for chart.js*/
+  })
+}
+
+function byPayment(req, res) {
+  const paymentURL = apiURL+"$select=gl_account_description,sum(amount)&$group=gl_account_description";
+  fetch(paymentURL)
+  .then((data) => data.json())
+  .then((data) => {
+    data.splice(1, 1)
+    return data;
+  })
+  .then((data) => {
+    let labels = [];
+    let amounts = [];
+    for (let i=0; i<data.length; i++) {
+      labels.push(data[i].gl_account_description)
+      amounts.push(data[i].sum_amount)
+    }
+    console.log(labels, amounts)
+    res.send({labels: labels, amounts: amounts}) /*Send formatted data for chart.js*/
+  })
+}
 
 
-app.get('/agency', (req, res) => {spendingbyAgency(req, res)});
-app.get('/payment', (req, res) => {spendingbyPayment(req, res)});
+
+app.get('/agency', (req, res) => {byAgency(req, res)});
+app.get('/payment', (req, res) => {byPayment(req, res)});
 app.route("/about").post((req, res) => {
     console.log("/about post request", req.body);
     writeForm(req.body.name, req.body.email, req.body.improvement, dbSettings);
