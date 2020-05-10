@@ -189,6 +189,7 @@ h2 {
     width : 50%;
     flex-direction: column;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .aboutUpper{
