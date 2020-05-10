@@ -2,11 +2,11 @@
 # 2019 Spending Information
 
 ## Team Members
-- Layo Adewole
-- Intisar Muhammad
-- Catherine Onumajuru
-- Kangsheng Pu 
-- Jessica Tang
+- Kangsheng Pu - Project Manager
+- Catherine Onumajuru - Backup Liaison; HTML/CSS, JavaScript
+- Jessica Tang - HTML/CSS
+- Layo Adewole - HTML/CSS, JavaScript (Interactivity)
+- Intisar Muhammad - JavaScript (Data Integration)
 
 [View website live.](http://inst377-group7-finalproject.herokuapp.com/)
 
