@@ -6,6 +6,11 @@ app.use(express.static('./'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+const path = require('path');
+app.get('./', (req, res) => {
+res.sendFile(path.join(__dirname, '/index.html'));
+});
+
 /*sqlite*/
 const sqlite3 = require('sqlite3').verbose();
 const open = require('sqlite').open;
