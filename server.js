@@ -22,6 +22,10 @@ const dbSettings2 = {
 /*temp --Heroku?*/
 const port = process.env.PORT || 3000;
 
+app.get('/public', function (req, res) {
+  res.render('index', {});
+});
+
 
 /* Begin handling of data */
 const apiURL = "https://data.princegeorgescountymd.gov/resource/p32t-azw8.json?"
