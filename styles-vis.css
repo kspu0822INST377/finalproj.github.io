@@ -11,6 +11,7 @@ body {
 
 /* Styling the header and menu */
 .header {
+    padding-left: 20px;
     display: block;
     height: 150px;
     display: flex;
@@ -18,9 +19,9 @@ body {
     justify-content: space-between;
     background-color: rgba(166, 166, 166, 0.4);
 }
-img {
+.header img {
     height: 100px;
-    width: 100px;
+    width: auto;
 }
 
 h1 {
@@ -335,6 +336,14 @@ canvas {
 
 
 @media only screen and (max-width: 500px) {
+    .header{
+        padding-left : 10px;
+    }
+
+    .header img{
+        height : 90px;
+        width : auto;
+    }
     .topnav { display: none; }
 
     .container{
