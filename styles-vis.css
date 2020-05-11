@@ -337,6 +337,10 @@ canvas {
 
 
 @media only screen and (max-width: 500px) {
+    .container{
+        margin-top : initial;
+    }
+
     .header{
         padding-left : 10px;
     }
