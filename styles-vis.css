@@ -64,11 +64,11 @@ h1 {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-.topnav a:hover {
+.topnav .phonenav a:hover {
     background-color: grey;
     color: white;
 }
-button {
+.box button, .formlogo button {
     display: inline-block;
     border: 1px solid #ffffff;
     border-radius: 0.2px;
@@ -77,15 +77,17 @@ button {
     background-color: transparent;
     color: white;
 }
-button:hover {
+.box button:hover , .formlogo button:hover{
     background-color: white;
     color: black;
     cursor: pointer;
 }
 
 
+
 /* Styling the graph container */
 #chartContainer {
+    padding-top: 20px;
     display: block;
     height: 100%;
     width: 900px;
@@ -111,8 +113,8 @@ button:hover {
     background-color: rgba(166, 166, 166, 0.6);
     padding-top: 4%;
     padding-bottom: 4%;
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 .box h2 {
@@ -164,8 +166,9 @@ h2 {
 }
 
 .box img{
-    height: 270px;
+    height: auto;
     width: 360px;
+    max-width: 100%;
 }
 
 .eachProfile{
@@ -254,3 +257,89 @@ canvas {
     background-color: white;
 }
 
+
+
+
+/* Phone display */
+
+
+.phonenav{
+    height: 250px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    color : white;
+    font-family: "Lato", sans-serif;
+    background-color: rgba(166, 166, 166, 0.4);
+    font-size : 40px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav a, .phoneDropdown {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.phoneDropdown {
+    background-color: transparent;
+    border : transparent;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+
+.sidenav a:hover, .phoneDropdown:hover {
+    color: #f1f1f1;
+}
+
+
+
+.fa-caret-down {
+    float: right;
+    padding-left: 20px;
+    color : #818181;
+}
+
+
+
+.dropdownBox{
+    display : none;
+    background-color: #4b4b4b;
+}
+
+.dropdownBox a{
+    background-color: #2e2e2e;
+    padding-left: 40px;
+}
+
+
+@media all and (max-width: 500px) {
+    .topnav { display: none; }
+  }
+
+@media all and (min-width: 500px) {
+    .phonenav { display: none; }
+  }

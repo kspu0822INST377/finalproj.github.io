@@ -5,9 +5,24 @@
         <title>Documentation</title>
         <link rel="stylesheet" href="styles-vis.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
     </head>
     <body>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html">Home</a>
+            <button class="phoneDropdown" id="buttonBox" onclick="openMenu()">Spending 
+                <i class="fa fa-caret-down" style="font-size:36px"></i>
+            </button>
+                <div id="dropdownBox" class="dropdownBox">
+                    <a href="agency.html">Agency</a>
+                    <a href="payment.html">Payment</a>
+                </div>
+            <a href="about.html">About</a>
+            <a href="documentation.html">Documentation</a>
+        </div>
+
         <div class="header">
             <div class="h1-img">
                 <img src="images/icon.png">
@@ -24,6 +39,9 @@
                 </div>
                 <a href="about.html">About</a>
                 <a href="documentation.html">Documentation</a>
+            </div>
+            <div class="phonenav">
+                <span style="font-size:30px;cursor:pointer;padding-left: 5px;" onclick="openNav()"> &#9776; &nbsp;Menu</span>
             </div>
         </div>
         <div class="wrapper">
@@ -52,11 +70,12 @@
                         <textarea id="question" name="question" rows="5" cols="33">
                         </textarea>
                         <br>
-                        <button id="formBtn">Submit</button>
+                        <button class="formBtn">Submit</button>
                     </form>
                 </div>
             </div>
         </div>
+        <script src="./sidenav.js"></script>
         <script>
             function sendForm(e) {
                 e.preventDefault();
