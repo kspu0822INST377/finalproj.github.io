@@ -101,7 +101,7 @@ h1 {
     height: 900px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     padding-top: 60px;
 }
 
@@ -141,6 +141,7 @@ h2 {
     margin-left: 20px;
     margin-top: 10px;
     margin-bottom: 35px;
+
 }
 
 
@@ -340,6 +341,10 @@ canvas {
 
     .container{
         justify-content: initial;
+    }
+
+    .wrapper{
+        align-items: center;
     }
 
     .container h1{
