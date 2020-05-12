@@ -55,7 +55,7 @@ Our website is aimed to function on most, if not all browsers.
 
 ### ***writeForm function***
 
-- If your server doesn’t log the body of the json-encoded response from the form on the About page, then something went wrong in getting the response of the body or inserting the. 
+- If your server doesn’t log the body of the json-encoded response from the form on the About page, then something went wrong in getting the response of the body. 
 - If the server doesn’t log the current SQL table, then something went wrong with inserting the values from the form in the table.
 
 ### ***byPayment and byAgency functions***
@@ -77,11 +77,11 @@ Post method in sendForm function (about.html)
 
 ### ***PUT***
 
-In the documentation page, a form, where users can submit questions, is sent to the server through a put method. It then gets inserted into a sql table in the questions.db file, using the writeForm function.
+In the documentation page, a form, where users can submit questions, is sent to the server through a put method. It then gets inserted into a sql table in the questions.db file, using the writeQuestion function.
 
 ## Known bugs and Future development.
 
-- CanvasJS maps may not load 
+- If deciding to use CanvasJS, the charts may not load
     - There are functions (spendingbyAgency and spendingbyPayment) in the server.js file that were meant to be used with the CanvasJS API, but since we decided not to use the API anymore, these functions are unused. However, they were left there in case anyone wanted to further work with CanvasJS to fix the loading issue.
 
 - The Chart.js charts may or may not load on all screen sizes.

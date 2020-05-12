@@ -47,10 +47,167 @@
         <div class="wrapper">
             <div class="aboutUpper">
                 <div class="aboutText">
-                    <h2>Documentation Page</h2>
+                    <h2>Documentation</h2>
                     <p>
-                        text
+                        Our purpose in developing this project was to help provide the general public with an idea of where their tax dollars are going. 
+                        Whether it is due to a lack of transparency from the government, lack of accessibility to information resources regarding government 
+                        spending, or just an overall lack of understanding, we wanted to develop an easy way for PG County residents to fulfill this 
+                        information need. Our website on PG County Government Spending is a resource that one can use to become more aware of how tax dollars 
+                        are spent by the Prince George’s County government. We utilized PG County’s Open Data API to pull data about the PG County budget and 
+                        provides simple visualizations about how PG County spends that budget based on government agency, and by payment description.
                     </p>
+                    <p>Our website is aimed to function on most, if not all browsers.</p>
+                    <h3>User Manual</h3>
+                    <h4>Who Can Use this Site</h4>
+                    <p>
+                        PG County residents can utilize the site to see data visualizations that depict how government spending is distributed among the various 
+                        agencies, as well as how spending is distributed.
+                    </p>
+                    <p>PG Office of Management and Budget can utilize the site to view past distributions of spending to inform future budgets.</p>
+                    <h4>How to Use this Site</h4>
+                    <ul>
+                        <li>
+                            At the home page, you can see the overall amount of money spent for the most recent fiscal year (at the time of this document’s 
+                            creation, 2019).
+                        </li>
+                        <br>
+                        <li>
+                            You can navigate to the two categories of visualizations from the home page, and from the navigation bar at the top of the website.
+                        </li>
+                        <br>
+                        <li>
+                            Both the Spending by Agency and Spending by Payment display pages have the same structure, making them easy to find and understand.
+                        </li>
+                        <ul style="padding-left: 7%;">
+                            <li>Click “View” from the home page to navigate to the corresponding visualization.</li>
+                            <li>You can also use the navigation to choose with visualization you would like to see.</li>
+                        </ul>
+                        <br>
+                        <li>
+                            Each page shows a chart of the distributions of government spending for the most recent fiscal year with a brief description at the 
+                            bottom of the page.
+                        </li>
+                        <br>
+                        <li>
+                            The About page gives a bit of background on our project and what our goals were in creating this project. It also introduces you to 
+                            our team, and allows you to submit feedback on ways we can improve our site.
+                        </li>
+                        <br>
+                        <li>
+                            The Documentation section includes steps to use our site for the general public and for developers that may want to continue 
+                            contributing to the site in the future or develop a site of their own based on our design.
+                        </li>
+                    </ul>
+                    <h3>Developer Manual</h3>
+                    <h4>Installing the application and all dependencies</h4>
+                    <ol>
+                        <li>
+                            Navigate to the location of the project folder in the terminal by typing into the command line:
+                            <p style="display: block; background-color: rgba(0, 0, 0, 0.6); padding: 2%;"><code>cd folder/folder/etc.</code></p>
+                            <ul>
+                                <li>
+                                    After copying our repository to your Github Desktop, navigate to the location of the repository folder in your computer.
+                                </li>
+                                <li>
+                                    If you are unsure and want to check the contents of the folder you are navigating, type in:
+                                    <p style="display: block; background-color: rgba(0, 0, 0, 0.6); padding: 2%;"><code>ls</code></p><br>This will display all the contents of that folder you are in.
+                                </li>
+                            </ul>
+                        </li>
+                        <br>
+                        <li>
+                            When you get to the project/main folder, type in:
+                            <p style="display: block; background-color: rgba(0, 0, 0, 0.6); padding: 2%;"><code>npm install</code></p><br>into the command line and wait for the installations to finish. This will install all the dependencies listed in 
+                            the package.json folder in the repository.
+                        </li>
+                    </ol>
+                    <h4>Running the application on a server</h4>
+                    <ol>
+                        <li>Navigate to the location of the project/main folder in the terminal typing into the command line:
+                            <p style="display: block; background-color: rgba(0, 0, 0, 0.6); padding: 2%;"><code>cd folder/folder/etc</code></p>
+                            <ul>
+                                <li>If you are unsure and want to check the contents of the folder you are navigating, type in:
+                                <p style="display: block; background-color: rgba(0, 0, 0, 0.6); padding: 2%;"><code>ls</code></p><br>This will display all the contents of that folder you are in.</li>
+                            </ul>
+                        </li>
+                        <br>
+                        <li>
+                            Assuming that you have already installed all the necessary dependencies, type in:
+                            <p style="display: block; background-color: rgba(0, 0, 0, 0.6); padding: 2%;"><code>npm start</code></p>
+                        </li>
+                        <li>Go to a new window or tab on your browser.</li>
+                        <br>
+                        <li>Type in “localhost:3000” into the search bar and click 'enter' in order to access the application.</li>
+                    </ol>
+                    <h4>Running tests for our software</h4>
+                    <h5>writeForm function</h5>
+                    <ul>
+                        <li>
+                            If your server doesn’t log the body of the json-encoded response from the form on the About page, then
+                             something went wrong in getting the response of the body.
+                        </li>
+                        <br>
+                        <li>
+                            If the server doesn’t log the current SQL table, then something went wrong with inserting the values
+                            from the form in the table.
+                        </li>
+                    </ul>
+                    <h5>byPayment and byAgency functions</h5>
+                    <ul>
+                        <li>
+                            If your server doesn’t log a list of the agency names or the payment description names and a list of 
+                            the amounts, then something went wrong with the get request and getting the JSON output of the request.
+                        </li>
+                        <br>
+                        <li>
+                            If the above worked, but your browser console isn’t logging a list of the labels, then something went 
+                            wrong when sending the response to the front end (res.send).
+                        </li>
+                    </ul>
+                    <h4>API for our server application (endpoints and what they each do)</h4>
+                    <h5>GET</h5>
+                    <p>
+                        We have two GET endpoints: one for the Spending by Agency page and another for the Spending by Payment page. 
+                        When a user goes to the Spending by Agency page, the byAgency function in the server.js file gets called and 
+                        accesses or ‘gets’ the JSON output of the Finance API from the link that is specified in the function. The 
+                        json data is then manipulated and transformed into the format that is required for the Chart.js chart, and 
+                        sent to the front end, where it is handled by the Chart.js API to produce a bar chart. The same applies to 
+                        when users go to the Spending by Payment page, except the byPayment function is called, where a get request 
+                        is sent to a different link.
+                    </p>
+                    <h5>POST</h5>
+                    <p>
+                        Post method in sendForm function (about.html)
+                    </p>
+                    <ul>
+                        <li>
+                            Uses fetch API in order to post JSON encoded data from the form on the About page, to the server. In the 
+                            server, it then puts into an sql table in the database_final.db file, using the writeForm function.
+                        </li>
+                    </ul>
+                    <h5>PUT</h5>
+                    <p>
+                        In the documentation page, a form, where users can submit questions, is sent to the server through a put 
+                        method. It then gets inserted into a sql table in the questions.db file, using the writeQuestion() function.
+                    </p>
+                    <h4>Known Bugs and Future Development</h4>
+                    <ul>
+                        <li>
+                            The Chart.js charts may or may not load on all screen sizes.
+                        </li>
+                        <br>
+                        <li>
+                            If deciding to use CanvasJS, the charts may not load
+                            <ul>
+                                <li>
+                                    There are functions (spendingbyAgency and spendingbyPayment) in the server.js file that were 
+                                    meant to be used with the CanvasJS API, but since we decided not to use the API anymore, 
+                                    these functions are unused. However, they were left there in case anyone wanted to further 
+                                    work with CanvasJS to fix the loading issue.
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
                 <div class="formlogo">
                     <img src="images/question.png" class="questions">
