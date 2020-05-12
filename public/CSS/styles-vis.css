@@ -460,7 +460,8 @@ h4 {
         text-align: center;
         width: 45%;
         flex-direction: column;
-        height : 250px;
+        height : auto;
+        padding-bottom: 10px;
         font-size: 4vw;
     }
 
