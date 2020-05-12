@@ -374,6 +374,12 @@ canvas {
         padding-right: 0;
     }
 
+    .profile {
+        margin-right: 0;
+        padding-right: 2%;
+        padding-left: 2%;
+    }
+
     #bar-chart {
         width: 100%;
     }
@@ -429,6 +435,7 @@ canvas {
     .h1-img {
         padding-left: 10px;
     }
+    
 
 
 
@@ -461,12 +468,12 @@ canvas {
         text-align: center;
         width: 45%;
         flex-direction: column;
-        height : initial;
+        height : 250px;
     }
 
     .eachProfile img{
         width: 80%;
-        height : auto;
+        height: 50%;
     }
 
     .shortText{
