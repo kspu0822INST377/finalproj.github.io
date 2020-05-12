@@ -70,6 +70,8 @@ h1 {
     background-color: grey;
     color: white;
 }
+
+
 .box button, .formlogo button {
     display: inline-block;
     border: 1px solid #ffffff;
@@ -288,6 +290,7 @@ h4 {
     font-family: "Lato", sans-serif;
     margin-bottom: 10px;
     padding-bottom: 1%;
+    padding-top : 1%
 }
 .phonenav-name {
     font-size: 23px;
