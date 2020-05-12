@@ -455,6 +455,13 @@ h4 {
         padding-left: 10px;
     }
     
+    .eachProfile{
+        text-align: center;
+        width: 45%;
+        flex-direction: column;
+        height : 250px;
+        font-size: 4vw;
+    }
 
 
 
@@ -488,7 +495,7 @@ h4 {
         width: 45%;
         flex-direction: column;
         height : 250px;
-        font-size: 4vw;
+        font-size: 3vw;
     }
 
     .eachProfile img{
@@ -501,9 +508,6 @@ h4 {
         padding-bottom: 20px;
     }
 
-    .longText{
-        font-size: 5px;
-    }
 
     .formlogo{
         justify-content: space-around;
