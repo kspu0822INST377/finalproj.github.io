@@ -81,7 +81,7 @@ In the documentation page, a form, where users can submit questions, is sent to 
 
 ## Known bugs and Future development.
 
-- CanvasJS maps may not load 
+- If deciding to use CanvasJS, the charts may not load
     - There are functions (spendingbyAgency and spendingbyPayment) in the server.js file that were meant to be used with the CanvasJS API, but since we decided not to use the API anymore, these functions are unused. However, they were left there in case anyone wanted to further work with CanvasJS to fix the loading issue.
 
 - The Chart.js charts may or may not load on all screen sizes.
