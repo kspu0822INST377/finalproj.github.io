@@ -43,14 +43,14 @@
             </div>
 
             <div class="phonenav">
-                <span style="font-size:30px;cursor:pointer;padding-left: 5px;" onclick="openNav()"> &#9776; &nbsp;Menu</span>
+                <span style="font-size:30px;cursor:pointer;padding-left: 5px;" onclick="openNav()"> &#9776; &nbsp;<span class="phonenav-name">Menu</span></span>
             </div>
         </div>
         <div class ="container">
             <div class="wrapper">
                 <h2>Spending by Agency</h2>
                 <div class="chartWrapper">
-                    <canvas id="bar-chart" width="700px" height="500px">
+                    <canvas id="bar-chart" width=700 height=500>
                         <img src="https://i.imgur.com/fXUIBfi.gif" alt="Chart will Render Here..."/>
                     </canvas>
                 </div>
@@ -84,6 +84,7 @@
                     return lst;
                 }
                 console.log(data['amounts'])
+                Chart.defaults.global.defaultFontColor = 'black';
                 new Chart(document.getElementById("bar-chart"), {
                     type: 'horizontalBar',
                     data: {
@@ -97,6 +98,10 @@
                     ]
                     },
                     options: {
+                        tooltips:{
+                            intersect : false,
+                            mode:'index'
+                        },
                         legend: { display: false },
                         title: {
                             display: false,
@@ -111,13 +116,12 @@
                             }]
                         }
                     },
+                    /* based from https://jsfiddle.net/pundoo/o0bu1Lnx/ */
                     plugins: [{
-                        function(c) {
-                            var chartHeight = c.chart.height;
-                            if (chartHeight < 800) {
-                                console.log(chartHeight);
-                                c.scales['y-axis-0'].options.ticks.fontSize = chartHeight * 2 / 100;
-                            }
+                        afterInit: function(c) {
+                            const chartHeight = c.chart.height;
+                            c.scales['y-axis-0'].options.ticks.fontSize = chartHeight * 2 / 100; //fontSize: 2% of canvas height
+                            c.scales['x-axis-0'].options.ticks.fontSize = chartHeight * 2 / 100;
                         }
                     }]
                 });

@@ -42,14 +42,14 @@
                 <a href="documentation.html">Documentation</a>
             </div>
             <div class="phonenav">
-                <span style="font-size:30px;cursor:pointer;padding-left: 5px;" onclick="openNav()"> &#9776; &nbsp;Menu</span>
+                <span style="font-size:30px;cursor:pointer;padding-left: 5px;" onclick="openNav()"> &#9776; &nbsp;<span class="phonenav-name">Menu</span></span>
             </div>
         </div>
         <div class ="container">
             <div class="wrapper">
                 <h2>Spending by Payment</h2>
                 <div class="chartWrapper" style="height: 500px; overflow-x:auto;position:relative;">
-                    <canvas id="bar-chart" width="700px" height="3000px">
+                    <canvas id="bar-chart" width="700" height="3000">
                         <img src="https://i.imgur.com/fXUIBfi.gif" alt="Chart will Render Here..."/>
                     </canvas>
                 </div>
@@ -80,6 +80,7 @@
                     return lst;
                 }
                 console.log(data['amounts'])
+                Chart.defaults.global.defaultFontColor = 'black';
                 new Chart(document.getElementById("bar-chart"), {
                     type: 'horizontalBar',
                     data: {
@@ -113,7 +114,15 @@
                                 }
                             }]
                         }
-                    }
+                    },
+                    /* based from https://jsfiddle.net/pundoo/o0bu1Lnx/ */
+                    plugins: [{
+                        afterInit: function(c) {
+                            const chartHeight = c.chart.height;
+                            c.scales['y-axis-0'].options.ticks.fontSize = chartHeight * 3 / 1000; //fontSize: .003% of canvas height
+                            c.scales['x-axis-0'].options.ticks.fontSize = chartHeight * 3 / 1000;
+                        }
+                    }]
                 });
             })
         </script>

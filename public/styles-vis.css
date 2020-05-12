@@ -36,7 +36,7 @@ h1 {
     align-items: center;
 }
 
-.topnav { /* better styling tbc */
+.topnav {
     height: 30px;
     display: flex;
     align-items: center;
@@ -273,6 +273,14 @@ canvas {
     color : white;
     font-family: "Lato", sans-serif;
     margin-bottom: 10px;
+    order: 1;
+    padding-bottom: 1%;
+}
+.phonenav-name {
+    font-size: 23px;
+}
+.h1-img {
+    order: 2;
 }
 
 .sidenav {
@@ -356,7 +364,25 @@ canvas {
     }
 
     .wrapper{
-        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    #bar-chart {
+        width: 100%;
+    }
+    .chartWrapper {
+        width: 98%;
+        padding-left: 1%;
+    }
+    .about p {
+        padding-left: 1%;
     }
 
     .container h1{
@@ -395,6 +421,13 @@ canvas {
 
     .header h1{
         font-size: 25px;
+    }
+    
+    .header {
+        padding-left: 0;
+    }
+    .h1-img {
+        padding-left: 10px;
     }
 
 
