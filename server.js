@@ -164,7 +164,7 @@ function byPayment(req, res) {
 
 
 
-app.get('/agency/', (req, res) => {byAgency(req, res)});
+app.get('/agency', (req, res) => {byAgency(req, res)});
 app.get('/payment', (req, res) => {byPayment(req, res)});
 app.route("/about").post((req, res) => {
     console.log("/about post request", req.body);
