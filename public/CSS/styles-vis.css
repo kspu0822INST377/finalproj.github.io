@@ -355,6 +355,7 @@ h4 {
 
 .container h1{
     padding-right : 2%;
+    word-wrap: break-word;
 }
 
 
