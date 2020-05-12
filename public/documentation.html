@@ -83,7 +83,7 @@
 
                 const formToSend = new FormData(target);
 
-                fetch("/doc", {
+                fetch("/public/doc", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -98,7 +98,7 @@
                     target.append(`${data.successMsg}`);
                 })
             }
-            const formBtn = document.querySelector("#formBtn");
+            const formBtn = document.querySelector(".formBtn");
             formBtn.addEventListener("click", sendForm);
         </script>
     </body>

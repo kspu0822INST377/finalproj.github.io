@@ -164,15 +164,15 @@ function byPayment(req, res) {
 
 
 
-app.get('/agency', (req, res) => {byAgency(req, res)});
-app.get('/payment', (req, res) => {byPayment(req, res)});
-app.route("/about").post((req, res) => {
-    console.log("/about post request", req.body);
+app.get('/public/agency', (req, res) => {byAgency(req, res)});
+app.get('/public/payment', (req, res) => {byPayment(req, res)});
+app.route("/public/about").post((req, res) => {
+    console.log("/public/about post request", req.body);
     writeForm(req.body.name, req.body.email, req.body.improvement, dbSettings);
     res.json({successMsg: 'Thank you! Your suggestion was submitted.'});
 })
-app.route("/doc").put((req, res) => {
-  console.log("/doc put request", req.body);
+app.route("/public/doc").put((req, res) => {
+  console.log("/public/doc put request", req.body);
   writeQuestion(req.body.name, req.body.email, req.body.question, dbSettings2);
   res.json({successMsg: 'Thank you! Your question was submitted.'});
 })
