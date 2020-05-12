@@ -495,6 +495,13 @@ h4 {
         padding-top: 20px;
         padding-bottom: 20px;
     }
+
+    .shortText{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 8px;
+    }
+
     .formlogo{
         justify-content: space-around;
         width: 80%;
