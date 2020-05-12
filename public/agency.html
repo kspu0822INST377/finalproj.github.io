@@ -112,7 +112,7 @@
                         }
                     },
                     plugins: [{
-                        beforeDraw: function(c) {
+                        function(c) {
                             var chartHeight = c.chart.height;
                             if (chartHeight < 800) {
                                 console.log(chartHeight);
