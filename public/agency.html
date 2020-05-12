@@ -34,7 +34,7 @@
                 <div class="dropdown">
                     <a class="active" href="#Spending">Spending</a>
                     <div class="dropdown-content">
-                        <a href="/public/agency.html">Agency</a>
+                        <a href="agency.html">Agency</a>
                         <a href="payment.html">Payment</a>
                     </div>
                 </div>
@@ -61,10 +61,11 @@
         </div>
         <script src="./sidenav.js"></script>
         <script>
-            fetch('/public/agency')
+            fetch('/agency')
             .then((data) => data.json())
             .then((data) => {
-                console.log(data)
+                console.log(data);
+                return data;
             })
             .then((data) => {
                 /*function to generate random rgb colors*/
