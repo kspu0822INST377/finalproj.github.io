@@ -273,14 +273,10 @@ canvas {
     color : white;
     font-family: "Lato", sans-serif;
     margin-bottom: 10px;
-    order: 1;
     padding-bottom: 1%;
 }
 .phonenav-name {
     font-size: 23px;
-}
-.h1-img {
-    order: 2;
 }
 
 .sidenav {
@@ -345,6 +341,13 @@ canvas {
 
 
 @media only screen and (max-width: 500px) {
+    .phonenav {
+        order: 1;
+    }
+    .h1-img {
+        order: 2;
+    }
+
     .container{
         margin-top : initial;
     }
