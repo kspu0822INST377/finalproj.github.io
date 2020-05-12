@@ -20,7 +20,7 @@ const dbSettings2 = {
 };
 
 /* defined port */
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 /*if (process.env.NODE_ENV === 'production') {
   // Exprees will serve up production assets
