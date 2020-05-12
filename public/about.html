@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="styles-vis.css">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <script src="canvas.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -38,7 +37,7 @@
                         <a href="payment.html">Payment</a>
                     </div>
                 </div>
-                <a class="active" href="about.html">About</a>
+                <a class="active" href="./public/about.html">About</a>
                 <a href="documentation.html">Documentation</a>
             </div>
             <div class="phonenav">
@@ -73,11 +72,11 @@
                     <form id="userform">
                         <label for="name">Name</label>
                         <br>
-                        <input type="text" id="name" name="name" />
+                        <input type="text" id="name" name="name">
                         <br>
                         <label for="email">Email</label>
                         <br>
-                        <input type="text" id="email" name="email" />
+                        <input type="text" id="email" name="email">
                         <br>
                         <label for="improvement">Any suggestion for the website?</label>
                         <br>
@@ -153,7 +152,7 @@
                     target.append(`${data.successMsg}`);
                 })
             }
-            const formBtn = document.querySelector("#formBtn");
+            const formBtn = document.querySelector(".formBtn");
             formBtn.addEventListener("click", sendForm);
         </script>
     </body>

@@ -64,6 +64,10 @@
             fetch('/agency')
             .then((data) => data.json())
             .then((data) => {
+                console.log(data);
+                return data;
+            })
+            .then((data) => {
                 /*function to generate random rgb colors*/
                 function rgbColors() {
                     const r = Math.floor(Math.random() * 255);
@@ -106,7 +110,16 @@
                                 }
                             }]
                         }
-                    }
+                    },
+                    plugins: [{
+                        function(c) {
+                            var chartHeight = c.chart.height;
+                            if (chartHeight < 800) {
+                                console.log(chartHeight);
+                                c.scales['y-axis-0'].options.ticks.fontSize = chartHeight * 2 / 100;
+                            }
+                        }
+                    }]
                 });
             })
         </script>

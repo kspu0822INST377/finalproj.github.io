@@ -43,8 +43,8 @@ h1 {
 }
 
 .topnav a, .dropdown-content a {
-    padding-right: 2%;
-    padding-left: 2%;
+    padding-right: 1%;
+    padding-left: 1%;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     color: white;
@@ -65,7 +65,7 @@ h1 {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-.topnav .phonenav a:hover {
+.topnav a:hover, .phonenav {
     background-color: grey;
     color: white;
 }
@@ -252,12 +252,12 @@ h2 {
 p {
     color: white;
 }
+canvas {
+    background-color: white;
+}
 #bar-chart img {
     display: block;
     margin: auto;
-}
-canvas {
-    background-color: white;
 }
 
 

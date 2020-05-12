@@ -2,7 +2,7 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const app = express();
-app.use(express.static('./'));
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -19,10 +19,10 @@ const dbSettings2 = {
   driver: sqlite3.Database,
 };
 
-/*temp --Heroku?*/
-const port = process.env.PORT || 3000;
+/* defined port */
+const port = process.env.PORT;
 
-if (process.env.NODE_ENV === 'production') {
+/*if (process.env.NODE_ENV === 'production') {
   // Exprees will serve up production assets
   app.use(express.static('public'));
 
@@ -31,13 +31,13 @@ if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
   });
-}
+}*/
 
 
 /* Begin handling of data */
 const apiURL = "https://data.princegeorgescountymd.gov/resource/p32t-azw8.json?"
 
-/* Spending by Agency function */
+/* Spending by Agency function (old)*/
 function spendingbyAgency(req, res) {
     const agencyURL = apiURL+"$select=agency,sum(amount)&$group=agency"
     fetch(agencyURL)
@@ -60,7 +60,7 @@ function spendingbyAgency(req, res) {
     })
 }
 
-/* Spending by Payment */
+/* Spending by Payment (old)*/
 function spendingbyPayment(req, res) {
     const paymentURL = apiURL+"$select=gl_account_description,sum(amount)&$group=gl_account_description"
     fetch(paymentURL)
@@ -84,7 +84,7 @@ function spendingbyPayment(req, res) {
 }
 
 
-/* writeForm function */
+/* writeForm function to send suggestion form info to database_final database */
 async function writeForm(username, email, suggestion, dbSettings) {
     console.log('writing form data to database');
     const db = await open(dbSettings)
@@ -102,6 +102,7 @@ async function writeForm(username, email, suggestion, dbSettings) {
     return result;
   }
 
+/* function to send question form info to questions.db database */
 async function writeQuestion(username, email, question, dbSettings2) {
   console.log('writing question form data to database');
   const db = await open(dbSettings2)
@@ -119,6 +120,7 @@ async function writeQuestion(username, email, question, dbSettings2) {
   return result;
 }
 
+/* function to get data for ageny graph */
 function byAgency(req, res) {
   const agencyURL = apiURL+"$select=agency,sum(amount)&$group=agency";
   fetch(agencyURL)
@@ -135,10 +137,11 @@ function byAgency(req, res) {
       amounts.push(parseInt(data[i].sum_amount))
     }
     console.log(labels, amounts)
-    res.send({labels: labels, amounts: amounts}) /*Send formatted data for chart.js*/
+    res.json({labels: labels, amounts: amounts}) /*Send formatted data for chart.js*/
   })
 }
 
+/* function to get data for payment graph */
 function byPayment(req, res) {
   const paymentURL = apiURL+"$select=gl_account_description,sum(amount)&$group=gl_account_description";
   fetch(paymentURL)
@@ -155,7 +158,7 @@ function byPayment(req, res) {
       amounts.push(data[i].sum_amount)
     }
     console.log(labels, amounts)
-    res.send({labels: labels, amounts: amounts}) /*Send formatted data for chart.js*/
+    res.json({labels: labels, amounts: amounts}) /*Send formatted data for chart.js*/
   })
 }
 
