@@ -189,6 +189,7 @@ h2 {
 .eachProfile img {
     height: 130px;
     width: 130px;
+    max-width: 100%;
 }
 
 .aboutText{
@@ -514,6 +515,7 @@ h4 {
         height : 250px;
         font-size: 2.5vw;
     }
+
 }
 
 @media all and (min-width: 500px) {
