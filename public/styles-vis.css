@@ -65,7 +65,7 @@ h1 {
 .dropdown:hover .dropdown-content {
     display: block;
 }
-.topnav .phonenav a:hover {
+.topnav a:hover, .phonenav {
     background-color: grey;
     color: white;
 }
