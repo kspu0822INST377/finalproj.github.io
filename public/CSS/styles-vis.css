@@ -181,7 +181,7 @@ h2 {
     padding: 1%;
     justify-content: center;
     width : 17%;
-    height: 200px;
+    height: auto;
     flex-direction: column;
     margin-bottom: 35px;
     font-size: 0.9vw;
