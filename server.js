@@ -2,7 +2,7 @@
 const express = require('express');
 const fetch = require('node-fetch');
 const app = express();
-app.use(express.static('public'));
+app.use(express.static('./'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -20,9 +20,9 @@ const dbSettings2 = {
 };
 
 /* defined port */
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
-if (process.env.NODE_ENV === 'production') {
+/*if (process.env.NODE_ENV === 'production') {
   // Exprees will serve up production assets
   app.use(express.static('public'));
 
@@ -31,7 +31,7 @@ if (process.env.NODE_ENV === 'production') {
   app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'public', 'index.html'));
   });
-}
+}*/
 
 
 /* Begin handling of data */
@@ -164,15 +164,15 @@ function byPayment(req, res) {
 
 
 
-app.get('/agency', (req, res) => {byAgency(req, res)});
-app.get('/payment', (req, res) => {byPayment(req, res)});
+app.get('/public/agency', (req, res) => {byAgency(req, res)});
+app.get('/public/payment', (req, res) => {byPayment(req, res)});
 app.route("/about").post((req, res) => {
     console.log("/about post request", req.body);
     writeForm(req.body.name, req.body.email, req.body.improvement, dbSettings);
     res.json({successMsg: 'Thank you! Your suggestion was submitted.'});
 })
-app.route("/doc").put((req, res) => {
-  console.log("/doc put request", req.body);
+app.route("/public/doc").put((req, res) => {
+  console.log("/public/doc put request", req.body);
   writeQuestion(req.body.name, req.body.email, req.body.question, dbSettings2);
   res.json({successMsg: 'Thank you! Your question was submitted.'});
 })
