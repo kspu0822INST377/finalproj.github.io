@@ -7,6 +7,7 @@ body {
     justify-content: space-between;
     background-image: url("images/backgrnd.jpg");
     background-size: cover;
+    background-attachment: fixed;
 }
 
 /* Styling the header and menu */
@@ -251,6 +252,7 @@ h2 {
 }
 p {
     color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 canvas {
     background-color: white;
@@ -260,7 +262,17 @@ canvas {
     margin: auto;
 }
 
+li {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
 
+h3, h4, h5 {
+    font-family: 'Montserrat', sans-serif;
+}
+h4 {
+    font-weight: 400;
+}
 
 
 /* Phone display */
