@@ -490,7 +490,7 @@ h4 {
     }
 
     .eachProfile img{
-        width: 80%;
+        width: auto;
         height: 50%;
     }
 
