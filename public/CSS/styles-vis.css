@@ -353,6 +353,9 @@ h4 {
 
 
 @media only screen and (max-width: 500px) {
+    body {
+        background-attachment: scroll;
+    }
     .phonenav {
         order: 1;
     }
