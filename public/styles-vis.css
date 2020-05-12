@@ -252,12 +252,12 @@ h2 {
 p {
     color: white;
 }
+canvas {
+    background-color: white;
+}
 #bar-chart img {
     display: block;
     margin: auto;
-}
-canvas {
-    background-color: white;
 }
 
 
