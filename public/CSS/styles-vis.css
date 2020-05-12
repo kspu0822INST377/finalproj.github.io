@@ -494,6 +494,7 @@ h4 {
 
 
     .eachProfile img{
+        padding-top: 10px;
         width: auto;
         height: 50%;
     }
