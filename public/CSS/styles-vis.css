@@ -5,7 +5,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-image: url("images/backgrnd.jpg");
+    background-image: url("../images/backgrnd.jpg");
     background-size: cover;
     background-attachment: fixed;
 }
