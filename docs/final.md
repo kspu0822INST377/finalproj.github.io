@@ -41,6 +41,7 @@ We decided to use graphs/charts to show the amount spent because visual data in 
 ## Technical System Rationale
 
 We decided to use the Chart.js library because it allows us to create clean visual charts and graphs that users can interact with, and that loads fast in a browser. There are several options for chart types, which gives us more freedom in choosing how we want to represent our data.
+We were also unable to use CanvasJS as the charts were not loading for all browsers or all versions of browsers. Some users could see the charts, while some could not. Therefore, we decided to use Chart.js instead.
 
 ## How Our System Helps Address the Problem
 
