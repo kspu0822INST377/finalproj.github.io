@@ -184,6 +184,7 @@ h2 {
     height: 200px;
     flex-direction: column;
     margin-bottom: 35px;
+    font-size: 0.8vw;
 }
 .eachProfile img {
     height: 130px;
@@ -487,6 +488,7 @@ h4 {
         width: 45%;
         flex-direction: column;
         height : 250px;
+        font-size: 4vw;
     }
 
     .eachProfile img{
