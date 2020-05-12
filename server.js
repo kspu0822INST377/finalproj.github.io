@@ -137,7 +137,7 @@ function byAgency(req, res) {
       amounts.push(parseInt(data[i].sum_amount))
     }
     console.log(labels, amounts)
-    res.send({labels: labels, amounts: amounts}) /*Send formatted data for chart.js*/
+    res.json({labels: labels, amounts: amounts}) /*Send formatted data for chart.js*/
   })
 }
 
