@@ -490,13 +490,6 @@ h4 {
 
     }
 
-    .eachProfile{
-        text-align: center;
-        width: 45%;
-        flex-direction: column;
-        height : 250px;
-        font-size: 3vw;
-    }
 
     .eachProfile img{
         width: auto;
@@ -519,3 +512,13 @@ h4 {
 @media all and (min-width: 500px) {
     .phonenav { display: none; }
   }
+
+@media all and (max-width: 700px) {
+    .eachProfile{
+        text-align: center;
+        width: 45%;
+        flex-direction: column;
+        height : 250px;
+        font-size: 3vw;
+    }
+}
